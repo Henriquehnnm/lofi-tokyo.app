@@ -13,6 +13,7 @@
   --text-faded: #9a958e;
 
   --yellow: #ffd866;
+  --orange: #d86f41;
   --green: #a9dc76;
   --red: #fc618d;
   --blue: #78dce8;
@@ -37,11 +38,9 @@ body::before {
   height: 100vh;
   pointer-events: none;
   inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(252, 252, 250, 0.2) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle,
+      rgba(252, 252, 250, 0.2) 1px,
+      transparent 1px);
   background-size: 30px 30px;
   opacity: 0.5;
   z-index: -1;

@@ -8,7 +8,9 @@
 
 <section class="hero">
   <h1>LoFi Tokyo</h1>
-  <h2 id="element">- Chill beats for the City -</h2>
+  <div class="text">
+    <h2 id="element">- Chill beats for the City -</h2>
+  </div>
   <a
     href="https://www.youtube.com/channel/UCkK2B6D3imy6EnpqfrYm-5A"
     target="_blank">Play the Vibes!</a
@@ -35,7 +37,7 @@
 
   h1 {
     font-family: "cooper-black-std", serif;
-    color: var(--yellow);
+    color: var(--orange);
     font-size: 110px;
     font-weight: bold;
     text-shadow:
@@ -43,12 +45,20 @@
       1px 1px 3px rgba(0, 0, 0, 0.1);
   }
 
+  .text {
+    display: flex;
+    justify-content: center;
+  }
+
   h2 {
     font-family: "cooper-black-std", serif;
-    color: var(--text-main);
+    background-color: var(--brass);
+    border-radius: 10px;
     font-size: 30px;
     margin-top: -38px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    width: 30vw;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    display: block;
   }
 
   a {
@@ -107,6 +117,11 @@
   @media (max-width: 1484px) {
     .bg-video {
       display: none;
+    }
+
+    h2 {
+      background-color: transparent;
+      width: auto;
     }
   }
 
