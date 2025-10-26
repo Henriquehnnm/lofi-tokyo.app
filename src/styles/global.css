@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/svr8epm.css");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
+
+/*Retrokai palette*/
+:root {
+  --bg-paper: #221f22;
+  --bg-desk: #2a262a;
+  --bg-surface: #323035;
+
+  --ink-black: #080808;
+  --text-main: #f8f5f2;
+  --text-faded: #9a958e;
+
+  --yellow: #ffd866;
+  --green: #a9dc76;
+  --red: #fc618d;
+  --blue: #78dce8;
+
+  --brass: #e5b567;
+  --steel: #93959f;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--text-main);
+  font-family: "M PLUS Rounded 1c", serif;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(252, 252, 250, 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.flex {
+  position: static;
+  width: 100%;
+  min-height: 100vh;
+  padding: 21.4vh 2vw 2vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 1484px) {
+  .flex {
+    justify-content: center;
+  }
+}

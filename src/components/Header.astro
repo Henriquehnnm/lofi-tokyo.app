@@ -1,0 +1,216 @@
+---
+
+---
+
+<header>
+  <nav>
+    <a href="/" class="home">LoFi Tokyo</a>
+    <a href="/#about" class="links">About</a>
+    <a href="/#latest" class="links">Latest Videos</a>
+    <svg
+      id="burger"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-text-align-justify-icon lucide-text-align-justify"
+      ><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"
+      ></path></svg
+    >
+  </nav>
+  <div id="menu">
+    <a href="/#about" class="links">About</a>
+    <a href="/#latest" class="links">Latest Videos</a>
+  </div>
+</header>
+
+<style>
+  header {
+    top: 0;
+    position: sticky;
+    z-index: 99;
+    background-color: transparent;
+    width: 100%;
+    transition: 0.15s ease-out;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 4px
+    );
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative;
+  }
+
+  .home {
+    margin-right: auto;
+    display: inline-block;
+    font-size: 1.1em;
+    letter-spacing: 0.02em;
+  }
+
+  a,
+  svg {
+    color: var(--text-faded);
+    font-weight: normal;
+    text-decoration: none;
+    background-color: var(--bg-paper);
+    border: 1px solid var(--bg-surface);
+    margin: 8px;
+    padding: 10px 20px;
+    font-family: "cooper-black-std", serif;
+    border-radius: 10px;
+    transition: all 0.1s ease-out;
+    letter-spacing: 0.05em;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.15s ease-out;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+  }
+
+  a:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.08);
+  }
+
+  svg {
+    cursor: pointer;
+    padding: 12px;
+  }
+
+  svg:hover {
+    color: var(--green);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  #menu {
+    background-color: var(--bg-paper);
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid var(--bg-surface);
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    display: none;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.01) 2px,
+      rgba(0, 0, 0, 0.01) 4px
+    );
+  }
+
+  #menu > a {
+    font-size: 20px;
+    margin: 10px 5px;
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--text-faded);
+    border: none;
+    padding: 8px 16px;
+    box-shadow: none;
+    letter-spacing: 0.05em;
+  }
+
+  #menu > a::after {
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+  }
+
+  @media (min-width: 930px) {
+    #burger {
+      display: none;
+    }
+    nav > a {
+      display: inline-block;
+    }
+    nav > div {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 930px) {
+    .links {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector("#burger");
+  const menuHover = document.querySelector("#menu");
+
+  burger.addEventListener("click", () => {
+    if (menuHover.style.display === "block") {
+      menuHover.style.display = "none";
+    } else {
+      menuHover.style.display = "block";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!burger.contains(e.target) && !menuHover.contains(e.target)) {
+      menuHover.style.display = "none";
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    menuHover.style.display = "none";
+  });
+
+  const linksDoMenu = menuHover.querySelectorAll("a");
+  linksDoMenu.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuHover.style.display = "none";
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    menuHover.style.display = "none";
+  });
+</script>
